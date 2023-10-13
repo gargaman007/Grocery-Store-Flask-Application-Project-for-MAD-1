@@ -1,0 +1,102 @@
+
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #343a40;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Custom style for product boxes */
+.product-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.product-box h3 {
+    font-size: 1.25rem;
+}
+
+.product-box p {
+    margin-bottom: 10px;
+}
+
+.product-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-box button {
+    margin-top: 10px;
+}
+
+
+/* Style for the search form */
+.navbar-form {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the search input */
+.navbar-form input[type="text"] {
+    width: 250px; /* Adjust the width as needed */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+/* Style for the search button */
+.navbar-form button[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    background-color: #28a745; /* Change the background color as needed */
+    color: #fff; /* Text color */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the search button */
+.navbar-form button[type="submit"]:hover {
+    background-color: #218838; /* Change the hover background color as needed */
+}

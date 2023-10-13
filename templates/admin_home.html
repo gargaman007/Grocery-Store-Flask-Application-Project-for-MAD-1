@@ -1,0 +1,37 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Admin Home - My Grocery Store{% endblock %}
+
+{% block content %}
+<main>
+    <section class="admin-section">
+        <h2>Manage Products</h2>
+        <p>Click here to manage the products available in the store.</p>
+        <a href="/manage_products" class="btn btn-primary">Manage Products</a>
+    </section>
+
+    <section class="admin-section">
+        <h2>View Orders</h2>
+        <p>View and manage customer orders.</p>
+        <a href="/manage_orders" class="btn btn-primary">View Orders</a>
+    </section>
+
+    <section class="admin-section">
+        <h2>Manage Categories</h2>
+        <p>Add, edit, or delete product categories.</p>
+        <a href="/manage_categories" class="btn btn-primary">Manage Categories</a>
+    </section>
+
+    <section class="admin-section">
+        <h2>Manage Admins</h2>
+        <p>Add or remove admin users.</p>
+        <a href="/manage_admins" class="btn btn-primary">Manage Admins</a>
+    </section>
+
+    <section class="admin-section">
+        <h2>Manage Customers</h2>
+        <p>Manage customer accounts and information.</p>
+        <a href="/manage_customers" class="btn btn-primary">Manage Customers</a>
+    </section>
+</main>
+{% endblock %}

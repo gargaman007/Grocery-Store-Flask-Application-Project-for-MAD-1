@@ -1,0 +1,51 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Manage Admins - My Grocery Store{% endblock %}
+
+{% block content %}
+<main>
+    <section class="admin-section">
+        <h2>Manage Admins</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="admin_username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="admin_username" name="admin_username" required>
+            </div>
+            <div class="mb-3">
+                <label for="admin_password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="admin_password" name="admin_password" required>
+            </div>
+            <button type="submit" class="btn btn-primary" name="create_admin">Create Admin</button>
+        </form>
+    </section>
+
+    <section class="admin-section">
+        <h2>Admin List</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Admin ID</th>
+                    <th>Username</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for admin in admins %}
+                <tr>
+                    <td>{{ admin.adminid }}</td>
+                    <td>{{ admin.username }}</td>
+                    <td>
+                        {% if admin.adminid != 1 %}
+                        <form method="POST">
+                            <input type="hidden" name="delete_admin" value="{{ admin.adminid }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</main>
+{% endblock %}

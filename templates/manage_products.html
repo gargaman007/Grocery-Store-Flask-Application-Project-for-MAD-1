@@ -1,0 +1,50 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Manage Products - My Grocery Store{% endblock %}
+
+{% block content %}
+<main>
+    <section class="admin-section">
+        <h2>Manage Products</h2>
+        <a href="/create_product" class="btn btn-primary">Add New Product</a>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.product_id }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.category.category_name }}</td>
+                    <td>Rs {{ product.product_price }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>
+                        {% if product.image_path %}
+                            <img src="{{ url_for('static', filename='uploads/' + product.image_path) }}" alt="Product Image" class="product-image">
+                        {% else %}
+                            No Image
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="/edit_product/{{ product.product_id }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form method="POST" style="display: inline;">
+                            <input type="hidden" name="delete_product" value="{{ product.product_id }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</main>
+{% endblock %}

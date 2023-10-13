@@ -1,0 +1,25 @@
+/* categories.css */
+
+/* Style the list of categories */
+ul.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.category-list li {
+    margin-bottom: 10px;
+}
+
+ul.category-list li a {
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+ul.category-list li a:hover {
+    background-color: #0056b3;
+}

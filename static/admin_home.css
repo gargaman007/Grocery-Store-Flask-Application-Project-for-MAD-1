@@ -1,0 +1,33 @@
+/* static/admin_home.css */
+
+/* Style for admin-section */
+.admin-section {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style for section headings */
+.admin-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Style for section description */
+.admin-section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Style for buttons */
+.admin-section .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.admin-section .btn-primary:hover {
+    background-color: #0056b3;
+}

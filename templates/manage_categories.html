@@ -1,0 +1,33 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Manage Category - My Grocery Store{% endblock %}
+
+{% block content %}
+    <h2>Manage Categories</h2>
+    <a href="/create_category" class="btn btn-primary">Create New Category</a>
+
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.category_id }}</td>
+                    <td>{{ category.category_name }}</td>
+                    <td>
+                        <a href="/edit_category/{{ category.category_id }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form method="POST" style="display: inline;">
+                            <input type="hidden" name="delete_category" value="{{ category.category_id }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

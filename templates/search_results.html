@@ -1,0 +1,27 @@
+{% extends 'customer_base.html' %}
+
+{% block title %}Search Results - My Grocery Store{% endblock %}
+
+{% block content %}
+<main>
+    <h2>Search Results</h2>
+    <p>Showing results for: {{ query }}</p>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4">
+            <div class="product-box">
+                <h3>{{ product.product_name }}</h3>
+                <p>Price: Rs {{ product.product_price }}</p>
+                <p>{{ product.description }}</p>
+                <img src="{{ url_for('static', filename='uploads/' + product.image_path) }}" alt="{{ product.product_name }}" class="img-fluid">
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('add_to_cart', product_id=product.product_id) }}" class="btn btn-primary">Add to Cart</a>
+                    <a href="{{ url_for('order_product', product_id=product.product_id) }}" class="btn btn-success">Order Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

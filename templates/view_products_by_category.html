@@ -1,0 +1,32 @@
+{% extends 'customer_base.html' %}
+
+{% block content %}
+    <h2>Products in {{ category.category_name }}</h2>
+    {% if products %}
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="product-box">
+                        <h3>{{ product.product_name }}</h3>
+                        <p>Price: Rs {{ product.product_price }}</p>
+                        <p>{{ product.description }}</p>
+                        <img src="{{ url_for('static', filename='uploads/' + product.image_path) }}" alt="{{ product.product_name }}" class="img-fluid">
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url_for('add_to_cart', product_id=product.product_id) }}" class="btn btn-primary">Add to Cart</a>
+                            <a href="{{ url_for('order_product', product_id=product.product_id) }}" class="btn btn-success">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No products in this category.</p>
+    {% endif %}
+
+
+
+<section>
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need assistance, please feel free to contact us at <a href="mailto:contact@example.com">contact@example.com</a>.</p>
+</section>
+{% endblock %}

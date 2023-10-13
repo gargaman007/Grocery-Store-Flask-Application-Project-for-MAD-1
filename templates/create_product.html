@@ -1,0 +1,39 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Create New Product - My Grocery Store{% endblock %}
+
+{% block content %}
+<main>
+    <section class="admin-section">
+        <h2>Create New Product</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="product_name" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="product_name" name="product_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="category_id" class="form-label">Category</label>
+                <select class="form-select" id="category_id" name="category_id" required>
+                    <option value="" disabled selected>Select a category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_id }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="product_price" class="form-label">Price</label>
+                <input type="number" step="0.01" class="form-control" id="product_price" name="product_price" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="product_image" class="form-label">Product Image</label>
+                <input type="file" class="form-control" id="product_image" name="product_image">
+            </div>
+            <button type="submit" class="btn btn-primary" name="create_product">Create Product</button>
+        </form>
+    </section>
+</main>
+{% endblock %}

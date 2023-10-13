@@ -1,0 +1,29 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Manage Customers{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Manage Customers</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.userid }}</td>
+                <td>{{ customer.username }}</td>
+                <td>{{ customer.password }}</td>
+                <td><a href="/delete_customer/{{ customer.userid }}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

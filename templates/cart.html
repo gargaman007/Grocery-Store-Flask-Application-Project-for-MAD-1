@@ -1,0 +1,50 @@
+{% extends 'customer_base.html' %}
+
+{% block title %}Cart - My Grocery Store{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Your Cart</h2>
+    {% if cart_items %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cart_item in cart_items %}
+            <tr>
+                <td>{{ cart_item.product.product_name }}</td>
+                <td>Rs {{ cart_item.price }}</td>
+                <td>
+                    <form method="post" action="/update_cart/{{ cart_item.cart_item_id }}">
+                        <input type="number" name="quantity" value="{{ cart_item.quantity }}" min="1">
+                        <button type="submit" class="btn btn-link">Update</button>
+                    </form>
+                </td>
+                <td>Rs {{ cart_item.price * cart_item.quantity }}</td>
+                <td>
+                    <form method="post" action="/cart">
+                        <input type="hidden" name="action" value="remove">
+                        <input type="hidden" name="cart_item_id" value="{{ cart_item.cart_item_id }}">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-right">
+        <p>Total: Rs {{ cart_total }}</p> {# Display the total price #}
+        <a href="/checkout" class="btn btn-success">Checkout</a>
+    </div>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Manage Orders - My Grocery Store{% endblock %}
+
+{% block content %}
+<main>
+    <section class="admin-section">
+        <h2>Manage Orders</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>User ID</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.order_id }}</td>
+                    <td>{{ order.product.product_name }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.phone_number }}</td>
+                    
+                    {# Fetch the customer information associated with the order #}
+                    <td>{{ order.customer.userid }}</td>
+                    <td>{{ order.customer.username }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</main>
+{% endblock %}

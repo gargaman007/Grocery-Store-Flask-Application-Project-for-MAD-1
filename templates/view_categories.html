@@ -1,0 +1,18 @@
+<!-- view_categories.html -->
+
+{% extends 'customer_base.html' %}
+
+{% block content %}
+    <h2>Categories</h2>
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-md-4 mb-3">
+                <form action="{{ url_for('view_products_by_category', category_id=category.category_id) }}" method="get">
+                    <button type="submit" class="btn btn-primary btn-block">{{ category.category_name }}</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
